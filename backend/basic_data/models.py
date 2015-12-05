@@ -26,13 +26,11 @@ class Profile(models.Model):
     """
     # TODO add more fields
     user = models.OneToOneField(User, on_delete=models.PROTECT)
-    date_joined = models.DateTimeField('Profile creation date')
     description = models.TextField('Description', max_length=5000)
     image = models.ImageField()
     skills = models.ManyToManyField(Skill)
     green_coins = models.PositiveSmallIntegerField('Green coin balance')
     blue_coins = models.PositiveSmallIntegerField('Blue coin balance')
-    deactivated = models.NullBooleanField('Profile has been deactivated?')
 
 
 class InitialCapital(models.Model):
