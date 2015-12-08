@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 from django_enumfield import enum
 
 
@@ -51,7 +52,7 @@ class InitialCapital(models.Model):
     (by checking, the sum of all values of this table to the
     sum of the current balance of all users.
     """
-    user = models.ForeignKey(User, verbose_name='User')
+    user = models.OneToOneField(User, verbose_name='User')
     value = models.PositiveSmallIntegerField()
 
 
@@ -73,10 +74,26 @@ class RequestStatus(enum.Enum):
     _transitions = {
         OPEN: (CANCELLED, MATCHED,),
         CANCELLED: (),
-        MATCHED: (CANCELLED, FINISHED, OPEN, ),
+        MATCHED: (CANCELLED, FINISHED, OPEN,),
         FINISHED: (),
 
     }
+
+
+class RequestManager(models.Manager):
+    """
+    Creates a request and automatically sets 'date' to the current date
+    and 'status' to OPEN
+    """
+    def create(self, user, title, description, category, hours):
+        request = Request(user=user,
+                          title=title,
+                          description=description,
+                          category_id=category,
+                          hours=hours,
+                          date=timezone.now(),
+                          status=RequestStatus.OPEN)
+        request.save()
 
 
 class Request(models.Model):
@@ -93,6 +110,7 @@ class Request(models.Model):
     category = models.ForeignKey(SkillFamily)
     hours = models.PositiveSmallIntegerField('Number of hours required, 0 if open request')
     status = enum.EnumField(RequestStatus)
+    objects = RequestManager()
 
 
 class OfferStatus(enum.Enum):
@@ -131,4 +149,3 @@ class Offer(models.Model):
     description = models.TextField(max_length=2000)
     hours = models.PositiveSmallIntegerField('Number of hours (only to be filled if the offer is for an open request)')
     status = enum.EnumField(OfferStatus)
-

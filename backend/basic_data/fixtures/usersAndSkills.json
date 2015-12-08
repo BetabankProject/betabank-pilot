@@ -1,0 +1,128 @@
+ [
+   {
+      "fields":{
+         "description":"Business description",
+         "title":"Business"
+      },
+      "pk":4,
+      "model":"basic_data.skillfamily"
+   },
+   {
+      "fields":{
+         "description":"Arts and crafts description",
+         "title":"Arts and Crafts"
+      },
+      "pk":5,
+      "model":"basic_data.skillfamily"
+   },
+   {
+      "fields":{
+         "family":4,
+         "description":"Project management description",
+         "title":"Project management"
+      },
+      "pk":3,
+      "model":"basic_data.skill"
+   },
+   {
+      "fields":{
+         "family":4,
+         "description":"Product design",
+         "title":"Product design"
+      },
+      "pk":4,
+      "model":"basic_data.skill"
+   },
+   {
+      "fields":{
+         "family":5,
+         "description":"Painting description",
+         "title":"Painting"
+      },
+      "pk":5,
+      "model":"basic_data.skill"
+   },  {
+      "fields":{
+         "username":"user1",
+         "user_permissions":[
+
+         ],
+         "is_superuser":false,
+         "date_joined":"2015-12-06T18:03:59.330Z",
+         "is_active":true,
+         "email":"",
+         "groups":[
+
+         ],
+         "last_login":null,
+         "is_staff":false,
+         "last_name":"",
+         "password":"pbkdf2_sha256$20000$GPbF214KbyLr$HKXzdC35k26CXIEUg7JPv1/tu017HIWQlMx9nr+SOR4=",
+         "first_name":""
+      },
+      "pk":5,
+      "model":"auth.user"
+   },
+   {
+      "fields":{
+         "username":"user2",
+         "user_permissions":[
+
+         ],
+         "is_superuser":false,
+         "date_joined":"2015-12-06T18:04:09.395Z",
+         "is_active":true,
+         "email":"",
+         "groups":[
+
+         ],
+         "last_login":null,
+         "is_staff":false,
+         "last_name":"",
+         "password":"pbkdf2_sha256$20000$R9c7Kn3P07Wi$izU/XCYHxkpwf+DUzvp32qhtibvAbLOZcwniFbHpp2g=",
+         "first_name":""
+      },
+      "pk":6,
+      "model":"auth.user"
+   },
+   {
+      "fields":{
+         "username":"timebroker",
+         "user_permissions":[
+
+         ],
+         "is_superuser":false,
+         "date_joined":"2015-12-06T18:04:20.316Z",
+         "is_active":true,
+         "email":"",
+         "groups":[
+
+         ],
+         "last_login":null,
+         "is_staff":false,
+         "last_name":"",
+         "password":"pbkdf2_sha256$20000$G8tFbtdJpxp7$suXDANSYzN4UVSh5uYwXBbiDweVLkVGXbZ+GhC/6ErE=",
+         "first_name":""
+      },
+      "pk":7,
+      "model":"auth.user"
+   },
+   {
+      "fields":{
+         "value":10,
+         "user":5
+      },
+      "pk":1,
+      "model":"basic_data.initialcapital"
+   },
+   {
+      "fields":{
+         "value":5,
+         "user":7
+      },
+      "pk":2,
+      "model":"basic_data.initialcapital"
+   }
+
+
+]
