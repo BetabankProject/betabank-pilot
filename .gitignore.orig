@@ -56,9 +56,11 @@ docs/_build/
 # PyBuilder
 target/
 
+<<<<<<< HEAD
 #IDEA
 .idea/
-
+=======
 # SQLite
 *.db
 *.sqlite3
+>>>>>>> master
