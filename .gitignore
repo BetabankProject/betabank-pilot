@@ -62,3 +62,6 @@ target/
 # SQLite
 *.db
 *.sqlite3
+
+# git
+*.orig
