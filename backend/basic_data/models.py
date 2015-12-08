@@ -85,12 +85,12 @@ class RequestManager(models.Manager):
     Creates a request and automatically sets 'date' to the current date
     and 'status' to OPEN
     """
-    def create(self, user, title, description, category, hours):
+    def create(self, user, json):
         request = Request(user=user,
-                          title=title,
-                          description=description,
-                          category_id=category,
-                          hours=hours,
+                          title=json['title'],
+                          description=json['description'],
+                          hours=json['hours'],
+                          category_id=json['category'],
                           date=timezone.now(),
                           status=RequestStatus.OPEN)
         request.save()
