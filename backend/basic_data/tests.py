@@ -40,5 +40,7 @@ class RequestManagerTest(TestCase):
         c = self.client
         c.login(username='user1', password='pass')
         response = c.post('/pilot/request/', json.dumps(baddata), content_type="application/json")
-        print(response.content)
+        json_response = json.loads(response.content.decode('utf-8'))
+
         self.assertEqual(response.status_code, 400)
+        assert(json_response["error"].__contains__('title'))
